@@ -1,0 +1,14 @@
+<div class="listfilm">
+    <div class="listfilm__item">
+        <div class="listfilm__item-title"><p>{{ film.title }}</p><p><span><i><img src="../../assets/img/time.svg" /></i>{{ film.duration/60000 }} min</span><span><i><img src="../../assets/img/calendar.svg" /></i>{{film.date | date}}</span></p></div>
+        <div class="listfilm__item-text">
+        <div class="listfilm__item-box">
+        <p class="listfilm__item-description">{{ film.description }}</p></div>
+        <div class="listfilm__item-btn">
+            <app-btn-edit-delete-courses (deleteFilm)="getDeleteFilm($event)"  [filmitem] = "film"></app-btn-edit-delete-courses>
+        </div>
+        </div>
+    
+    </div>
+    
+</div>

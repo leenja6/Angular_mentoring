@@ -1,0 +1,52 @@
+.listfilm{
+
+    &__item{
+    width:calc(100% - 44px);
+    padding:25px 22px ;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 13px 0px rgba(50, 50, 50, 0.15);
+    margin-bottom: 22px;
+}
+    &__item-text{
+        display: flex;
+        justify-content: flex-start;
+        align-items:center;
+    }
+
+    &__item-box{
+       width: calc(100% - 235px);
+    }
+
+    &__item-btn{
+        width: 235px;
+    }
+
+    &__item-title{
+        width: calc(100% - 235px);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 19px;
+
+        p:first-child{
+            font-size: 20px;
+            font-weight: 500;
+        }
+        p:last-child{
+            display: flex; align-items: center;
+
+            span{ font-size: 13px; color:#bfc3d2; display: flex; align-items: center;
+            i{ padding-right: 7px; }
+            
+            }
+            span:first-child{ padding-right: 15px;}
+        }
+    }
+
+    &__item-description{
+       font-size: 14px;
+       line-height: 18px;
+       font-weight: 400;
+    }
+}
