@@ -1,19 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
 @import 'reset';
+@import 'variables';
+@import 'color';
 @import 'header';
 @import 'footer';
 @import 'container-courses';
 @import 'film';
 @import 'loremore';
 @import 'btn-edit-delete-courses';
-
-body {
-  background: #f2f3f7;
-
-  .container {
-    min-height: 100%;
-    display: grid;
-    grid-template-rows: 70px 1fr 60px;
-    grid-template-columns: 1fr;
-  }
-}
+@import 'btn-add-courses';
+@import 'search';
+@import 'content';

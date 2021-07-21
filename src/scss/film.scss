@@ -1,4 +1,4 @@
-.listfilm {
+.list-film {
   &__item {
     width: calc(100% - 44px);
     padding: 25px 22px;
@@ -7,6 +7,52 @@
     box-shadow: 0px 0px 13px 0px rgba(50, 50, 50, 0.15);
     margin-bottom: 22px;
   }
+
+  .item--end {
+    p {
+      text-align: center;
+    }
+  }
+
+  &__info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &__time {
+    font-size: 13px;
+    color: #bfc3d2;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  &__time:before {
+    content: '';
+    display: block;
+    padding-right: 5px;
+    width: 15px;
+    height: 15px;
+    background: url(../assets/img/time.svg) no-repeat;
+  }
+  &__calendar {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    color: #bfc3d2;
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+  }
+  &__calendar:before {
+    content: '';
+    padding-right: 5px;
+    display: block;
+    width: 15px;
+    height: 15px;
+    background: url(../assets/img/calendar.svg) no-repeat;
+  }
+
   &__item-text {
     display: flex;
     justify-content: flex-start;
@@ -27,28 +73,6 @@
     justify-content: space-between;
     align-items: center;
     padding-bottom: 19px;
-
-    p:first-child {
-      font-size: 20px;
-      font-weight: 500;
-    }
-    p:last-child {
-      display: flex;
-      align-items: center;
-
-      span {
-        font-size: 13px;
-        color: #bfc3d2;
-        display: flex;
-        align-items: center;
-        i {
-          padding-right: 7px;
-        }
-      }
-      span:first-child {
-        padding-right: 15px;
-      }
-    }
   }
 
   &__item-description {

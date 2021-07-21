@@ -9,7 +9,7 @@ import { Film } from "../courses/courses.component"
 export class FilmComponent{
     
     @Input()
-    film!: Film 
+    film!: Film
     
     @Output() getDel:EventEmitter<Film> = new EventEmitter<Film>()
 
