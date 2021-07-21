@@ -1,29 +1,31 @@
-@import "variables";
-@import "color";
+@import 'variables';
+@import 'color';
 
-.group{
-    &__btn{
+.group {
+  &__btn {
     display: flex;
     justify-content: flex-end;
-    
-    button:first-child{ margin-right: 10px;}
 
-    button{
-        width: max-content;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        background:$blue;
-        border-radius: 2px;
-        border: none;
-        font-size: 12px;
-        color: #fff;
-        padding: 5px 12px;
-        cursor: pointer;
-    
-    i{ padding-right: 7px;}
-    
+    button:first-child {
+      margin-right: 10px;
     }
 
+    button {
+      width: max-content;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      background: $blue;
+      border-radius: 2px;
+      border: none;
+      font-size: 12px;
+      color: #fff;
+      padding: 5px 12px;
+      cursor: pointer;
+
+      i {
+        padding-right: 7px;
+      }
     }
+  }
 }
