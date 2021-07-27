@@ -1,0 +1,28 @@
+<div *ngIf="film" class="list-film">
+    <div class="list-film__item">
+        <div class="list-film__item-title">
+            <p>{{ film.title }}</p>
+            <p class="list-film__info">
+                <span class="list-film__time">
+                    {{ film.duration / 60000 }} min
+                </span>
+                <span class="list-film__calendar">
+                    {{ film.date | date }}
+                </span>
+            </p>
+        </div>
+        <div class="list-film__item-text">
+            <div class="list-film__item-box">
+                <p class="list-film__item-description">
+                    {{ film.description }}
+                </p>
+            </div>
+            <div class="list-film__item-btn">
+                <app-btn-edit-delete-courses
+                    (deleteFilm)="getDeleteFilm($event)"
+                    [filmItem]="film"
+                ></app-btn-edit-delete-courses>
+            </div>
+        </div>
+    </div>
+</div>
