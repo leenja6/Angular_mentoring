@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Film } from '../courses/courses.component';
+import { Film } from '../courses.component';
 
 @Component({
   selector: 'app-btn-edit-delete-courses',
