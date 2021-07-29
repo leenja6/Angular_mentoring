@@ -6,16 +6,9 @@ import { CommonsModule } from './commons/commons.module';
 import { CoreModule } from './core-module/core-module.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    CommonsModule,
-    CoreModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [AppComponent],
+    imports: [BrowserModule, FormsModule, CommonsModule, CoreModule],
+    providers: [],
+    bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,0 +1,7 @@
+{
+    "prettier.trailingComma": "all",
+    "prettier.useTabs": true,
+    "prettier.vueIndentScriptAndStyle": true,
+    "prettier.withNodeModules": true,
+    "prettier.tabWidth": 4
+}
