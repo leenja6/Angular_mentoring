@@ -4,8 +4,7 @@
     *ngFor="let post of filmList"
     [film]="post"
     (getDel)="getDeleteFilm($event)"
->
-</app-film>
+></app-film>
 <div class="list-film">
     <div *ngIf="filmList.length === 0" class="list-film__item item--end">
         <p>Нет курсов</p>
