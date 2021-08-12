@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'
-import { Film } from 'src/app/commons/interface/interface'
+import { Courses } from 'src/app/commons/interface/interface'
 
 @Component({
     selector: 'app-btn-edit-delete-courses',
@@ -7,11 +7,11 @@ import { Film } from 'src/app/commons/interface/interface'
 })
 export class BtnEditDeleteCoursesComponent {
     @Input()
-    filmItem!: Film
+    filmItem!: Courses
 
-    @Output() deleteFilm: EventEmitter<Film> = new EventEmitter<Film>()
+    @Output() deleteFilm: EventEmitter<Courses> = new EventEmitter<Courses>()
 
-    deletePost(item: Film) {
+    deletePost(item: Courses) {
         this.deleteFilm.emit(item)
     }
 }

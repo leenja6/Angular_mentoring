@@ -1,13 +1,12 @@
 <app-search></app-search>
 <app-btn-add-courses></app-btn-add-courses>
 <app-film
-    *ngFor="let post of filmList"
+    *ngFor="let post of coursesServices.getFilms() | async"
     [film]="post"
-    (getDel)="getDeleteFilm($event)"
 ></app-film>
 <div class="list-film">
-    <div *ngIf="filmList.length === 0" class="list-film__item item--end">
+    <div *ngIf="" class="list-film__item item--end">
         <p>Нет курсов</p>
     </div>
 </div>
-<app-lore-more *ngIf="filmList.length !== 0"></app-lore-more>
+<app-lore-more *ngIf=""></app-lore-more>

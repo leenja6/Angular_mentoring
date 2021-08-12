@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core'
-import { Film } from 'src/app/commons/interface/interface'
+import { Courses } from 'src/app/commons/interface/interface'
+import { CoursesServices } from 'src/app/commons/services/courses.services'
 
 @Component({
     selector: 'app-film',
@@ -7,11 +8,13 @@ import { Film } from 'src/app/commons/interface/interface'
 })
 export class FilmComponent {
     @Input()
-    film!: Film
+    film!: Courses
 
-    @Output() getDel: EventEmitter<Film> = new EventEmitter<Film>()
+    @Output() getDel: EventEmitter<Courses> = new EventEmitter<Courses>()
 
-    getDeleteFilm(item: Film) {
-        this.getDel.emit(item)
+    constructor(private coursesServices: CoursesServices) {}
+
+    getDeleteFilm(item: any) {
+        this.coursesServices.DeleteFilm(item.id)
     }
 }

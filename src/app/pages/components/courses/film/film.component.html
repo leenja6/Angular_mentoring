@@ -1,11 +1,9 @@
 <div *ngIf="film" class="list-film">
     <div class="list-film__item">
         <div class="list-film__item-title">
-            <p>{{ film.title }}</p>
+            <p>{{ film.name }}</p>
             <p class="list-film__info">
-                <span class="list-film__time">
-                    {{ film.duration / 60000 }} min
-                </span>
+                <span class="list-film__time"> {{ film.length }} min </span>
                 <span class="list-film__calendar">
                     {{ film.date | date }}
                 </span>
