@@ -1,19 +1,19 @@
-import { Courses } from '../interface/interface'
+import { Course } from '../interface/interface'
 import { Injectable } from '@angular/core'
 import { DataServices } from './data.services'
-import { Observable, of, Subject } from 'rxjs'
-import { map, switchMap, tap } from 'rxjs/operators'
+import { Subject } from 'rxjs'
+import { filter, switchMap } from 'rxjs/operators'
 
 @Injectable({ providedIn: 'root' })
 export class CoursesServices {
-    filmList$: Subject<Courses[]> = new Subject()
+    filmList$: Subject<Course[]> = new Subject()
 
     constructor(private fetchCourses: DataServices) {}
 
     fetchFilm() {
         this.fetchCourses
             .fetchCourses()
-            .pipe()
+            .pipe(filter((x) => x !== null))
             .subscribe((film) => {
                 this.filmList$.next(film.slice(0, 3))
             })
@@ -23,7 +23,7 @@ export class CoursesServices {
         return this.filmList$
     }
 
-    DeleteFilm(id: Courses) {
+    DeleteFilm(id: Course) {
         this.fetchCourses
             .deleteCourses(id)
             .pipe(
@@ -33,7 +33,4 @@ export class CoursesServices {
             )
             .subscribe()
     }
-}
-function film(film: any): any {
-    throw new Error('Function not implemented.')
 }

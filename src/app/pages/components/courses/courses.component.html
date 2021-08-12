@@ -5,8 +5,13 @@
     [film]="post"
 ></app-film>
 <div class="list-film">
-    <div *ngIf="" class="list-film__item item--end">
+    <div
+        *ngIf="(coursesServices.getFilms() | async)?.length === 0"
+        class="list-film__item item--end"
+    >
         <p>Нет курсов</p>
     </div>
 </div>
-<app-lore-more *ngIf=""></app-lore-more>
+<app-lore-more
+    *ngIf="(coursesServices.getFilms() | async)?.length !== 0"
+></app-lore-more>
