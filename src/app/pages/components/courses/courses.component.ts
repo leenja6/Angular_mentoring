@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { Courses } from 'src/app/commons/interface/interface'
+import { Course } from 'src/app/commons/interface/interface'
 import { CoursesServices } from 'src/app/commons/services/courses.services'
 
 @Component({
@@ -7,7 +7,7 @@ import { CoursesServices } from 'src/app/commons/services/courses.services'
     templateUrl: './courses.component.html',
 })
 export class CoursesComponent implements OnInit {
-    filmList: Courses[] = []
+    filmList: Course[] = []
 
     ngOnInit() {
         this.coursesServices.fetchFilm()
