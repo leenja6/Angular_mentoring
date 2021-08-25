@@ -8,6 +8,14 @@
         margin-bottom: 22px;
     }
 
+    &__item.green {
+        border: 1px solid rgb(87, 190, 39);
+    }
+
+    &__item.active {
+        background: rgb(255, 233, 186);
+    }
+
     .item--end {
         p {
             text-align: center;

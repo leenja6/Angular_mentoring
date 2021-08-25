@@ -1,7 +1,11 @@
 <app-search></app-search>
 <app-btn-add-courses></app-btn-add-courses>
 <app-film
-    *ngFor="let post of coursesServices.getFilms() | async"
+    *ngFor="
+        let post of coursesServices.getFilms()
+            | async
+            | loremore: loreMoreServices.count
+    "
     [film]="post"
 ></app-film>
 <div class="list-film">
@@ -13,5 +17,10 @@
     </div>
 </div>
 <app-lore-more
-    *ngIf="(coursesServices.getFilms() | async)?.length !== 0"
+    *ngIf="
+        (coursesServices.getFilms() | async | loremore: loreMoreServices.count)
+            ?.length !== 0 &&
+        (coursesServices.getFilms() | async | loremore: loreMoreServices.count)
+            ?.length < (coursesServices.getFilms() | async)?.length
+    "
 ></app-lore-more>

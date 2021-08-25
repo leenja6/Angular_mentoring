@@ -1,9 +1,15 @@
 <div *ngIf="film" class="list-film">
-    <div class="list-film__item">
+    <div
+        [addclass]="film.isTopRated"
+        [addBorder]="film.date"
+        class="list-film__item"
+    >
         <div class="list-film__item-title">
             <p>{{ film.name }}</p>
             <p class="list-film__info">
-                <span class="list-film__time"> {{ film.length }} min </span>
+                <span class="list-film__time">
+                    {{ film.length | datetransform }}</span
+                >
                 <span class="list-film__calendar">
                     {{ film.date | date }}
                 </span>
