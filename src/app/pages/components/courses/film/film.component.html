@@ -1,4 +1,4 @@
-<div *ngIf="film" class="list-film">
+<ng-container *ngIf="film">
     <div class="list-film__item">
         <div class="list-film__item-title">
             <p>{{ film.name }}</p>
@@ -23,4 +23,4 @@
             </div>
         </div>
     </div>
-</div>
+</ng-container>
