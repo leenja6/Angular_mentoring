@@ -1,4 +1,4 @@
-<div *ngIf="film" class="list-film">
+<ng-container *ngIf="film">
     <div
         [addclass]="film.isTopRated"
         [addBorder]="film.date"
@@ -29,4 +29,4 @@
             </div>
         </div>
     </div>
-</div>
+</ng-container>
