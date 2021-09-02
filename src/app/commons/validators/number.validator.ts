@@ -1,11 +1,13 @@
 import { FormControl } from '@angular/forms'
 
 export class NumberValidator {
-    static numbervalidator(control: FormControl): { [key: string]: boolean } {
+    static numbervalidator(
+        control: FormControl
+    ): { [key: string]: boolean } | null {
         if (/^\s*[\d]+(?:,[\d]+)?\s*$/.test(control.value)) {
-            return { numbervalidator: true }
+            return null
         }
 
-        return { numbervalidator: false }
+        return { numbervalidator: true }
     }
 }

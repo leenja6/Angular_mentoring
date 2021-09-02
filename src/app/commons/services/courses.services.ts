@@ -1,13 +1,13 @@
 import { Course } from '../interface/interface'
 import { Injectable } from '@angular/core'
 import { DataServices } from './data.services'
-import { Subject } from 'rxjs'
+import { Subject, BehaviorSubject } from 'rxjs'
 import { filter, switchMap } from 'rxjs/operators'
 import { Router } from '@angular/router'
 
 @Injectable({ providedIn: 'root' })
 export class CoursesServices {
-    filmList$: Subject<Course[]> = new Subject()
+    filmList$: BehaviorSubject<any> = new BehaviorSubject([])
 
     constructor(private fetchCourses: DataServices, private router: Router) {}
 

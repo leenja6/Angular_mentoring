@@ -1,6 +1,7 @@
 import { Component } from '@angular/core'
 import { FormArray, FormBuilder, Validators } from '@angular/forms'
 import { CoursesServices } from 'src/app/commons/services/courses.services'
+import { NumberValidator } from 'src/app/commons/validators/number.validator'
 
 @Component({
     selector: 'add-courses',
@@ -36,7 +37,7 @@ export class AddCoursesComponent {
             Validators.required,
             Validators.min(this.minLength),
             Validators.max(this.maxLength),
-            Validators.pattern(this.lengthPattern),
+            NumberValidator.numbervalidator,
         ]),
         authors: this.fb.array([]),
         isTopRated: this.fb.control(false),
@@ -66,7 +67,7 @@ export class AddCoursesComponent {
             const formData = { ...this.form.value }
             this.coursesServices.Addfilm(formData)
         } else {
-            console.log(this.form)
+            console.log(this.authors)
         }
     }
 }
