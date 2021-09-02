@@ -17,5 +17,5 @@ export class CoursesComponent implements OnInit {
     constructor(
         public coursesServices: CoursesServices,
         public loreMoreServices: loreMoreServices
-    ) {}
+    ) { }
 }
