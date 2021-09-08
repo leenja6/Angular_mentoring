@@ -1,0 +1,20 @@
+<label [for]="name">{{ title }}</label>
+<input
+    (blur)="onTouched()"
+    (input)="onChange($any($event.target).value)"
+    [value]="value"
+    [id]="name"
+    type="text"
+/>
+{{ errors | json }}
+<div *ngIf="errorAdd">
+    <small *ngIf="" class="validation">Минимум 5 символов</small>
+    <small *ngIf="" class="validation">Поле не может быть пустым</small>
+</div>      
+     
+    
+     
+                 
+                
+           
+

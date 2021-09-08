@@ -8,6 +8,7 @@ import { NumberValidator } from 'src/app/commons/validators/number.validator'
     templateUrl: './add-courses.component.html',
 })
 export class AddCoursesComponent {
+     
     minNameLength: number = 5
     maxNameLength: number = 100
     minDescription: number = 20
@@ -50,6 +51,12 @@ export class AddCoursesComponent {
     get authors() {
         return this.form.get('authors') as FormArray
     }
+    
+    get name() {
+        return this.form.get('name')
+    }
+    
+    
 
     AddAuthor() {
         const control = this.fb.group({
@@ -61,13 +68,20 @@ export class AddCoursesComponent {
         })
         this.authors.push(control)
     }
-
+    
     submit() {
         if (this.form.valid) {
             const formData = { ...this.form.value }
             this.coursesServices.Addfilm(formData)
+
+            console.log(formData)
         } else {
-            console.log(this.authors)
+            
+            const controls = this.form.controls
+            Object.keys(controls).forEach(controlName => controls[controlName].markAsTouched())
+            console.log(controls)
+            
         }
     }
 }
+

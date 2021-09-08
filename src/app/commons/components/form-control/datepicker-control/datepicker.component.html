@@ -1,0 +1,10 @@
+<div class="form__control">
+    <label [for]="name">{{ title }}</label>
+    <input 
+        (blur)="onTouched()"
+        (input)="onChange($any($event.target).value)"
+        [value]="value"
+        [id]="name" 
+        type="date"
+    />
+</div>

@@ -1,0 +1,11 @@
+<div class="form__control">
+    <label [for]="name">{{ title }}</label>
+    <textarea 
+        [id]="name" 
+        (blur)="onTouched()"
+        (input)="onChange($any($event.target).value)"
+        [value]="value"
+    ></textarea>
+</div>
+
+

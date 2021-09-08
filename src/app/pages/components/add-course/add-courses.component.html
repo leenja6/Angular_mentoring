@@ -6,95 +6,41 @@
     </div>
     <form [formGroup]="form" (ngSubmit)="submit()">
         <div class="form__control">
-            <label for="name">Title</label>
-            <input id="name" type="text" formControlName="name" />
-            <div *ngIf="f.name.touched && f.name.invalid">
-                <small
-                    *ngIf="f.name.errors && f.name.errors.required"
-                    class="validation"
-                    >Поле не может быть пустым</small
-                >
-                <small
-                    *ngIf="f.name.errors && f.name.errors.minlength"
-                    class="validation"
-                    >Минимум {{ minNameLength }} символов
-                </small>
-                <small
-                    *ngIf="f.name.errors && f.name.errors.maxlength"
-                    class="validation"
-                    >Не более {{ maxNameLength }} символов
-                </small>
-            </div>
+            {{f.name.errors | json}}
+            <string-control 
+                [errorAdd]="f.name.touched"
+                title="Title" 
+                name="name" 
+                formControlName="name"
+            >
+            </string-control>
+           
         </div>
         <div class="form__control">
-            <label for="description">Description</label>
-            <textarea
-                id="description"
-                type="text"
+            <textarea-control
+                title="Description"
+                name="description"
                 formControlName="description"
-            ></textarea>
-            <div *ngIf="f.description.touched && f.description.invalid">
-                <small
-                    *ngIf="
-                        f.description.errors && f.description.errors.required
-                    "
-                    class="validation"
-                    >Поле не может быть пустым</small
-                >
-                <small
-                    *ngIf="
-                        f.description.errors && f.description.errors.minlength
-                    "
-                    class="validation"
-                    >Минимум {{ minDescription }} символов
-                </small>
-                <small
-                    *ngIf="
-                        f.description.errors && f.description.errors.maxlength
-                    "
-                    class="validation"
-                    >Не более {{ maxDescription }} символов
-                </small>
-            </div>
+            >
+            </textarea-control>
         </div>
         <div class="form__control">
-            <label for="data">Date</label>
-            <input id="data" type="date" formControlName="date" />
-            <div *ngIf="f.date.touched && f.date.invalid">
-                <small
-                    *ngIf="f.date.errors && f.date.errors.required"
-                    class="validation"
-                    >Поле не может быть пустым</small
-                >
-            </div>
+            <datepicker-control
+                title="Date"
+                name="date"
+                formControlName="date" 
+            >
+            </datepicker-control>
         </div>
         <div class="form__control">
-            <label for="length">Duration</label>
-            <input id="length" type="text" formControlName="length" />
-            <div *ngIf="f.length.touched && f.length.invalid">
-                <small
-                    *ngIf="f.length.errors && f.length.errors.required"
-                    class="validation"
-                    >Поле не может быть пустым</small
-                >
-                <small
-                    *ngIf="f.length.errors && f.length.errors.min"
-                    class="validation"
-                    >Минимум {{ minLength }} мин
-                </small>
-                <small
-                    *ngIf="f.length.errors && f.length.errors.max"
-                    class="validation"
-                    >Не более {{ maxLength }} мин
-                </small>
-                <small
-                    *ngIf="f.length.errors && f.length.errors.pattern"
-                    class="validation"
-                    >Недопустимые символы
-                </small>
-            </div>
+            <string-control 
+                title="Duration" 
+                name="length"
+                formControlName="length"
+            >
+            </string-control>    
+           
         </div>
-
         <div formArrayName="authors">
             <div
                 *ngFor="let item of authors.controls; let i = index"
@@ -112,7 +58,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>    
         <div class="form__control-btn">
             <button (click)="AddAuthor()" class="btn btn-green" type="button">
                 Add Author
