@@ -18,22 +18,20 @@ import { AbstractControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR
     ],
 })
 export class StringComponent implements ControlValueAccessor, Validator, OnInit {
-    
-    errors!: any 
+
+    control!: AbstractControl;
     
     constructor(private ref:ChangeDetectorRef) { }
     
-    validate(control: AbstractControl): ValidationErrors | null {
-        this.errors = control.errors
-        return null
-    }     
-
-    ngOnInit() {
-      this.value 
+    validate(control: AbstractControl): null {
+        this.control = control;
+        return null;
     }
 
-     
-        
+    ngOnInit() {
+
+    }
+
     @Input()
     title!: string
 
@@ -42,7 +40,6 @@ export class StringComponent implements ControlValueAccessor, Validator, OnInit 
     
     @Input()
     errorAdd!:boolean
-    
 
     value!: string
 
@@ -58,10 +55,4 @@ export class StringComponent implements ControlValueAccessor, Validator, OnInit 
     registerOnTouched(fn: any): void {
         this.onTouched = fn
     }
-
-    
 }
-
-
-
-

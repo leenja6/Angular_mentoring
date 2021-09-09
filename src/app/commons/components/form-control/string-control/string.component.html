@@ -6,15 +6,4 @@
     [id]="name"
     type="text"
 />
-{{ errors | json }}
-<div *ngIf="errorAdd">
-    <small *ngIf="" class="validation">Минимум 5 символов</small>
-    <small *ngIf="" class="validation">Поле не может быть пустым</small>
-</div>      
-     
-    
-     
-                 
-                
-           
-
+<app-validation-error [errors]="control.errors"></app-validation-error>

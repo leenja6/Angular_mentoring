@@ -6,11 +6,10 @@
     </div>
     <form [formGroup]="form" (ngSubmit)="submit()">
         <div class="form__control">
-            {{f.name.errors | json}}
             <string-control 
                 [errorAdd]="f.name.touched"
-                title="Title" 
-                name="name" 
+                title="Title"
+                name="name"
                 formControlName="name"
             >
             </string-control>
@@ -38,14 +37,11 @@
                 name="length"
                 formControlName="length"
             >
-            </string-control>    
-           
+            </string-control>
         </div>
         <div formArrayName="authors">
-            <div
-                *ngFor="let item of authors.controls; let i = index"
-                class="form__control"
-            >
+            <div *ngFor="let item of authors.controls; let i = index"
+                class="form__control">
                 <div class="form__control-container" [formGroupName]="i">
                     <input type="hidden" formControlName="id" />
                     <div class="form__control-box">
