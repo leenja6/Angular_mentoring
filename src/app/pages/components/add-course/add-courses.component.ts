@@ -1,6 +1,7 @@
 import { Component } from '@angular/core'
 import { FormArray, FormBuilder, Validators } from '@angular/forms'
 import { CoursesServices } from 'src/app/commons/services/courses.services'
+import { FieldErrorsServices } from 'src/app/commons/services/field-errors.service'
 import { NumberValidator } from 'src/app/commons/validators/number.validator'
 
 @Component({
@@ -8,7 +9,7 @@ import { NumberValidator } from 'src/app/commons/validators/number.validator'
     templateUrl: './add-courses.component.html',
 })
 export class AddCoursesComponent {
-     
+    
     minNameLength: number = 5
     maxNameLength: number = 100
     minDescription: number = 20
@@ -16,10 +17,11 @@ export class AddCoursesComponent {
     minLength: number = 1
     maxLength: number = 500
     lengthPattern = /\-?\d*\.?\d{1,2}/
-
+    
     constructor(
         public fb: FormBuilder,
-        public coursesServices: CoursesServices
+        public coursesServices: CoursesServices,
+        public fieldErrorsSrv: FieldErrorsServices
     ) {}
 
     form = this.fb.group({
@@ -41,7 +43,7 @@ export class AddCoursesComponent {
             NumberValidator.numbervalidator,
         ]),
         authors: this.fb.array([]),
-        isTopRated: this.fb.control(false),
+        isTopRated: this.fb.control(true),
     })
 
     get f() {
@@ -56,7 +58,9 @@ export class AddCoursesComponent {
         return this.form.get('name')
     }
     
-    
+    deleteAuthors(item: number) {
+        this.authors.removeAt(item)
+    }
 
     AddAuthor() {
         const control = this.fb.group({
@@ -79,8 +83,6 @@ export class AddCoursesComponent {
             
             const controls = this.form.controls
             Object.keys(controls).forEach(controlName => controls[controlName].markAsTouched())
-            console.log(controls)
-            
         }
     }
 }

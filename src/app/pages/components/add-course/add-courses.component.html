@@ -17,6 +17,7 @@
         </div>
         <div class="form__control">
             <textarea-control
+                [errorAdd]="f.description.touched"
                 title="Description"
                 name="description"
                 formControlName="description"
@@ -25,6 +26,7 @@
         </div>
         <div class="form__control">
             <datepicker-control
+                [errorAdd]="f.date.touched"
                 title="Date"
                 name="date"
                 formControlName="date" 
@@ -33,6 +35,7 @@
         </div>
         <div class="form__control">
             <string-control 
+                [errorAdd]="f.length.touched"
                 title="Duration" 
                 name="length"
                 formControlName="length"
@@ -40,18 +43,34 @@
             </string-control>
         </div>
         <div formArrayName="authors">
+            
             <div *ngFor="let item of authors.controls; let i = index"
                 class="form__control">
                 <div class="form__control-container" [formGroupName]="i">
                     <input type="hidden" formControlName="id" />
                     <div class="form__control-box">
-                        <label>Name Author</label>
-                        <input formControlName="name" type="text" />
+                        <string-control 
+                            [errorAdd]="authors.touched"
+                            title="Last Name Author" 
+                            [name]="'lastname-' + i"
+                            formControlName="lastname"
+                        >
+                        </string-control>
                     </div>
                     <div class="form__control-box">
-                        <label>Last Name Author</label>
-                        <input formControlName="lastname" type="text" />
+                        <string-control 
+                            [errorAdd]="authors.touched"
+                            title="Name Author" 
+                            [name]="'name-' + i"
+                            formControlName="name"
+                        >
+                        </string-control>
                     </div>
+                    <span 
+                        class="form__control-close"
+                        (click)="deleteAuthors(i)"
+                    >
+                    </span>
                 </div>
             </div>
         </div>    

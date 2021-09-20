@@ -6,4 +6,8 @@
     [id]="name"
     type="text"
 />
-<app-validation-error [errors]="control.errors"></app-validation-error>
+<app-validation-error 
+    [errors]="control.errors" 
+    [errTouched]="errorAdd"
+>
+</app-validation-error>

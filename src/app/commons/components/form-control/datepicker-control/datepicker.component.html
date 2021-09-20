@@ -1,10 +1,13 @@
-<div class="form__control">
-    <label [for]="name">{{ title }}</label>
-    <input 
-        (blur)="onTouched()"
-        (input)="onChange($any($event.target).value)"
-        [value]="value"
-        [id]="name" 
-        type="date"
-    />
-</div>
+<label [for]="name">{{ title }}</label>
+<input 
+    (blur)="onTouched()"
+    (input)="onChange($any($event.target).value)"
+    [value]="value"
+    [id]="name" 
+    type="date"
+/>
+<app-validation-error 
+    [errors]="control.errors" 
+    [errTouched]="errorAdd"
+>
+</app-validation-error>

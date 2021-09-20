@@ -15,7 +15,7 @@ export class DataServices {
         return this.http.delete<Course[]>(`http://localhost:3004/courses/${id}`)
     }
 
-    addCourse(obj: any): Observable<Course[]> {
+    addCourse(obj: Course): Observable<Course[]> {
         return this.http.post<Course[]>(`http://localhost:3004/courses`, obj)
     }
 }

@@ -1,5 +1,5 @@
 import { Component, forwardRef, Input } from '@angular/core'
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
+import { AbstractControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, Validator } from '@angular/forms'
 
 @Component({
     selector: 'datepicker-control',
@@ -10,17 +10,33 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
             useExisting: forwardRef(() => DatepickerComponent),
             multi: true,
         },
+        {
+            provide: NG_VALIDATORS,
+            useExisting: forwardRef(() => DatepickerComponent),
+            multi: true,
+        }
     ],
 })
-export class DatepickerComponent implements ControlValueAccessor{
+export class DatepickerComponent implements ControlValueAccessor, Validator{
     
+    control!: AbstractControl;
+    
+    validate(control: AbstractControl): null {
+        this.control = control;
+        return null;
+    }
+
+    @Input()
+    errorAdd:boolean = false
+
     @Input() title!: string
+    
     @Input() name!: string
     
     value!: string
 
-    onChange!: (value: EventTarget) => void
-    onTouched!: () => void
+    public onChange = (value: EventTarget) => { }
+    public onTouched = () => { this.errorAdd = true }
 
     writeValue(value: string): void {
         this.value = value
@@ -28,8 +44,5 @@ export class DatepickerComponent implements ControlValueAccessor{
     registerOnChange(fn: any): void {
         this.onChange = fn
     }
-    registerOnTouched(fn: any): void {
-        this.onTouched = fn
-    }
-
+    registerOnTouched(fn: any): void {}
 }

@@ -22,9 +22,22 @@
         justify-content: flex-start;
         align-items: center;
         flex-wrap: wrap;
-        margin-top: 15px;
+        margin-top: 20px;
+       
+        textarea-control, string-control, datepicker-control{ width: 100%; position: relative;}
+        
+        &-close{
+            width: 25px;
+            height: 25px;
+            background: url('../assets/img/close.svg') no-repeat;
+            cursor: pointer;
+            position: absolute;
+            top: 28px;
+            right: -30px;
+        }
 
         &-container {
+            position: relative;
             width: calc(100% + 5px);
             margin-left: -5px;
             display: flex;

@@ -1,5 +1,5 @@
-import { Component, Input, forwardRef , OnInit, ChangeDetectorRef } from '@angular/core'
-import { AbstractControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidationErrors, Validator } from '@angular/forms'
+import { Component, Input, forwardRef } from '@angular/core'
+import { AbstractControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, Validator } from '@angular/forms'
 
 @Component({
     selector: 'string-control',
@@ -17,21 +17,15 @@ import { AbstractControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR
         }
     ],
 })
-export class StringComponent implements ControlValueAccessor, Validator, OnInit {
+export class StringComponent implements ControlValueAccessor, Validator {
 
-    control!: AbstractControl;
-    
-    constructor(private ref:ChangeDetectorRef) { }
+    control!: AbstractControl
     
     validate(control: AbstractControl): null {
         this.control = control;
         return null;
     }
-
-    ngOnInit() {
-
-    }
-
+    
     @Input()
     title!: string
 
@@ -39,12 +33,12 @@ export class StringComponent implements ControlValueAccessor, Validator, OnInit 
     name!: string
     
     @Input()
-    errorAdd!:boolean
+    errorAdd:boolean = false
 
     value!: string
 
-    onChange!: (value: EventTarget) => void
-    onTouched!: () => void
+    public onChange = (value: EventTarget) => { }
+    public onTouched = () => { this.errorAdd = true }
 
     writeValue(value: string): void {
         this.value = value
@@ -52,7 +46,5 @@ export class StringComponent implements ControlValueAccessor, Validator, OnInit 
     registerOnChange(fn: any): void {
         this.onChange = fn
     }
-    registerOnTouched(fn: any): void {
-        this.onTouched = fn
-    }
+    registerOnTouched(fn: any): void {}
 }

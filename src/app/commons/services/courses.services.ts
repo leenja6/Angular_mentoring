@@ -1,13 +1,13 @@
 import { Course } from '../interface/interface'
 import { Injectable } from '@angular/core'
 import { DataServices } from './data.services'
-import { Subject, BehaviorSubject } from 'rxjs'
+import { BehaviorSubject } from 'rxjs'
 import { filter, switchMap } from 'rxjs/operators'
 import { Router } from '@angular/router'
 
 @Injectable({ providedIn: 'root' })
 export class CoursesServices {
-    filmList$: BehaviorSubject<any> = new BehaviorSubject([])
+    filmList$: BehaviorSubject<Course[]> = new BehaviorSubject<Course[]>([])
 
     constructor(private fetchCourses: DataServices, private router: Router) {}
 
@@ -26,7 +26,7 @@ export class CoursesServices {
         return this.filmList$
     }
 
-    Addfilm(obj: any) {
+    Addfilm(obj: Course) {
         this.fetchCourses.addCourse(obj).subscribe(
             () => {
                 this.fetchFilm()
