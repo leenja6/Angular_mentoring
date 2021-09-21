@@ -7,7 +7,7 @@ import { Router } from '@angular/router'
 
 @Injectable({ providedIn: 'root' })
 export class CoursesServices {
-    filmList$: BehaviorSubject<Course[]> = new BehaviorSubject<Course[]>([])
+    filmList$: BehaviorSubject<any> = new BehaviorSubject([])
     constructor(private fetchCourses: DataServices, private router: Router) {}
     error = false
 

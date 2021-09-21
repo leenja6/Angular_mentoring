@@ -17,7 +17,7 @@ import { loreMorePipe } from './pipes/lore-more.pipe'
         StringComponent,
         TextareaComponent,
         DatepickerComponent,
-        ValidationErrorComponent
+        ValidationErrorComponent,
         addClassDirective,
         addBorderDirective,
         dateTransformPipe,
@@ -28,8 +28,8 @@ import { loreMorePipe } from './pipes/lore-more.pipe'
         SearchComponent,
         StringComponent,
         TextareaComponent,
-        DatepickerComponent
-       addClassDirective,
+        DatepickerComponent,
+        addClassDirective,
         addBorderDirective,
         dateTransformPipe,
         loreMorePipe,
