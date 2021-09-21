@@ -8,15 +8,13 @@ import { Router } from '@angular/router'
 @Injectable({ providedIn: 'root' })
 export class CoursesServices {
     filmList$: BehaviorSubject<Course[]> = new BehaviorSubject<Course[]>([])
-
     constructor(private fetchCourses: DataServices, private router: Router) {}
-
     error = false
 
     fetchFilm() {
         this.fetchCourses
             .fetchCourses()
-            .pipe(filter((x) => x !== null))
+            .pipe()
             .subscribe((film) => {
                 this.filmList$.next(film)
             })
