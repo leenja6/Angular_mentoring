@@ -2,13 +2,14 @@ import { Course } from '../interface/interface'
 import { Injectable } from '@angular/core'
 import { DataServices } from './data.services'
 import { BehaviorSubject } from 'rxjs'
-import { switchMap } from 'rxjs/operators'
+import { filter, switchMap } from 'rxjs/operators'
+import { Router } from '@angular/router'
 
 @Injectable({ providedIn: 'root' })
 export class CoursesServices {
-    filmList$: BehaviorSubject<any> = new BehaviorSubject([])
-
-    constructor(private fetchCourses: DataServices) {}
+    filmList$: BehaviorSubject<Course[]> = new BehaviorSubject<Course[]>([])
+    constructor(private fetchCourses: DataServices, private router: Router) {}
+    error = false
 
     fetchFilm() {
         this.fetchCourses
@@ -21,6 +22,20 @@ export class CoursesServices {
 
     getFilms() {
         return this.filmList$
+    }
+
+    Addfilm(obj: Course) {
+        this.fetchCourses.addCourse(obj).subscribe(
+            () => {
+                this.fetchFilm()
+                this.router.navigate(['/'])
+            },
+            (errors) => {
+                console.log(errors)
+                this.error = true
+                setTimeout(() => (this.error = false), 3000)
+            }
+        )
     }
 
     DeleteFilm(id: Course) {

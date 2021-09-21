@@ -1,0 +1,16 @@
+<label [for]="name">{{ title }}</label>
+<textarea 
+    [id]="name" 
+    (blur)="onTouched()"
+    (input)="onChange($any($event.target).value)"
+    [value]="value"
+>
+</textarea>
+<app-validation-error 
+    [errors]="control.errors" 
+    [errTouched]="errorAdd"
+>
+</app-validation-error>    
+
+
+
