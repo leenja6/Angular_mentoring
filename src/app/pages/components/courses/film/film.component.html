@@ -8,7 +8,7 @@
             <p>{{ film.name }}</p>
             <p class="list-film__info">
                 <span class="list-film__time">
-                    {{ film.length | datetransform }}
+                    {{ film.length! | datetransform }}
                 </span>
                 <span class="list-film__calendar">
                     {{ film.date | date }}

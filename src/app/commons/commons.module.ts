@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
+import { OverlayComponent } from './components/overlay/overlay.component'
+import { ModalComponent } from './components/modal/modal.component'
 import { SearchComponent } from './components/search/search.component'
 import { HttpClientModule } from '@angular/common/http'
 import { StringComponent } from './components/form-control/string-control/string.component'
@@ -9,10 +11,14 @@ import { ValidationErrorComponent } from './components/form-control/validation-e
 import { addClassDirective } from './directives/addClass.directive'
 import { addBorderDirective } from './directives/addBorder.directive'
 import { dateTransformPipe } from './pipes/date-transform.pipe'
-import { loreMorePipe } from './pipes/lore-more.pipe'
+import { loreMorePipe } from './pipes/lore-more.pipe';
+import { FormGroupComponent } from './components/form-group/form-group.component'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 @NgModule({
     declarations: [
+        OverlayComponent,
+        ModalComponent,
         SearchComponent,
         StringComponent,
         TextareaComponent,
@@ -22,9 +28,18 @@ import { loreMorePipe } from './pipes/lore-more.pipe'
         addBorderDirective,
         dateTransformPipe,
         loreMorePipe,
+        FormGroupComponent,
+        
     ],
-    imports: [CommonModule, HttpClientModule],
+    imports: [
+        CommonModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        FormsModule,
+    ],
     exports: [
+        OverlayComponent,
+        ModalComponent,
         SearchComponent,
         StringComponent,
         TextareaComponent,
@@ -33,6 +48,7 @@ import { loreMorePipe } from './pipes/lore-more.pipe'
         addBorderDirective,
         dateTransformPipe,
         loreMorePipe,
+        FormGroupComponent,
     ],
 })
 export class CommonsModule {}

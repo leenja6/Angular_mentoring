@@ -11,11 +11,15 @@ export class DataServices {
         return this.http.get<Course[]>('http://localhost:3004/courses')
     }
 
-    deleteCourses(id: Course): Observable<Course[]> {
+    deleteCourses(id: number): Observable<Course[]> {
         return this.http.delete<Course[]>(`http://localhost:3004/courses/${id}`)
     }
 
     addCourse(obj: Course): Observable<Course[]> {
         return this.http.post<Course[]>(`http://localhost:3004/courses`, obj)
+    }
+
+    PatchCourse(obj: Course, id: number): Observable<Course[]> {
+        return this.http.patch<Course[]>(`http://localhost:3004/courses/${id}`, obj)
     }
 }

@@ -9,10 +9,12 @@ import { CommonsModule } from '../commons/commons.module'
 import { AddCoursesComponent } from './components/add-course/add-courses.component'
 import { AppRoutingModule } from '../app-routing.module'
 import { ErrorComponent } from './components/error/error.component'
+import { ConfirmationDeleteComponent } from './components/courses/film/сonfirmation-delete/сonfirmation-delete.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 const COMPONENTS = [
     BtnAddCoursesComponent,
+    ConfirmationDeleteComponent,
     FilmComponent,
     BtnEditDeleteCoursesComponent,
     LoreMoreComponent,
@@ -30,6 +32,7 @@ const COMPONENTS = [
         ReactiveFormsModule,
         FormsModule,
     ],
+    entryComponents: [ConfirmationDeleteComponent],
     exports: [...COMPONENTS],
     bootstrap: [CoursesComponent],
 })

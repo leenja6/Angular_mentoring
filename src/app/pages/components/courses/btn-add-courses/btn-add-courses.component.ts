@@ -5,5 +5,5 @@ import { Component } from '@angular/core';
   templateUrl: './btn-add-courses.component.html',
 })
 export class BtnAddCoursesComponent {
-  
+    
 }
