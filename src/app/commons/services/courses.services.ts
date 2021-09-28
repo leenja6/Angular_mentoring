@@ -1,28 +1,57 @@
 import { Course } from '../interface/interface'
 import { Injectable } from '@angular/core'
 import { DataServices } from './data.services'
-import { BehaviorSubject } from 'rxjs'
+import { BehaviorSubject, Subject } from 'rxjs'
 import { switchMap } from 'rxjs/operators'
 import { Router } from '@angular/router'
-import { ModalServices } from './modal.services'
+
 
 @Injectable({ providedIn: 'root' })
     
 export class CoursesServices {
     filmList$: BehaviorSubject<any> = new BehaviorSubject([])
+    
+    closeModal$: Subject<any> = new Subject()
 
-    constructor(private fetchCourses: DataServices, private modal: ModalServices, private router: Router) {}
+    constructor(private fetchCourses: DataServices, private router: Router) {}
     
     errorTitle: string = ''
     
     error = false
     
+    coursesObj: Course = {
+        id: -1,
+        name: '',
+        date: '',
+        length: null,
+        description: '',
+        authors: [{lastName: '', id: 0, name: ''}],
+        isTopRated: false
+    }
+    
+    filmFormDelete() {
+        this.coursesObj = {
+            id: -1,
+            name: '',
+            date: '',
+            length: null,
+            description: '',
+            authors: [{lastName: '', id: 0, name: ''}],
+            isTopRated: false
+       }
+    }
+
+    filmFormAdd(obj: Course) {
+        this.coursesObj = obj
+    }
+
     fetchFilm() {
         this.fetchCourses
             .fetchCourses()
             .pipe()
             .subscribe((film) => {
                 this.filmList$.next(film)
+                this.closeModal$.next()
             })
     }
 
@@ -35,18 +64,14 @@ export class CoursesServices {
             .PatchCourse(obj, id)
             .subscribe(() => {            
                 this.fetchFilm()
-                this.modal.closeModal()
             },
             (errors) => {
                 console.log(errors)
                 this.error = true
                 this.errorTitle = 'Не удалось изменить курс'
                 setTimeout(() => (this.error = false), 3000)
-            }
-        )
+            })
     }
-
-   
 
     Addfilm(obj: Course) {
         this.fetchCourses
@@ -60,8 +85,7 @@ export class CoursesServices {
                 this.error = true
                 this.errorTitle = 'Не удалось добавить курс'
                 setTimeout(() => (this.error = false), 3000)
-            }
-        )
+            })
     }
 
     DeleteFilm(id: number) {
@@ -69,11 +93,11 @@ export class CoursesServices {
             .deleteCourses(id)
             .pipe(
                 switchMap(async () => {
-                    this.fetchFilm()
+                    this.fetchFilm()                    
                 })
             )
             .subscribe(() => {
-                this.modal.closeModal()
+                this.closeModal$.next()
             },
             (errors) => {
                 console.log(errors)

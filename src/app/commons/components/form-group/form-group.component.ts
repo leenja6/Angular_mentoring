@@ -3,7 +3,6 @@ import { FormArray, FormBuilder, Validators } from '@angular/forms'
 import { Course } from '../../interface/interface'
 import { CoursesServices } from '../../services/courses.services'
 import { FieldErrorsServices } from '../../services/field-errors.service'
-import { ModalServices } from '../../services/modal.services'
 import { NumberValidator } from '../../validators/number.validator'
 
 @Component({
@@ -12,7 +11,7 @@ import { NumberValidator } from '../../validators/number.validator'
 })
 
 export class FormGroupComponent implements OnInit{
-     minNameLength: number = 5
+    minNameLength: number = 5
     maxNameLength: number = 100
     minDescription: number = 20
     maxDescription: number = 220
@@ -24,11 +23,10 @@ export class FormGroupComponent implements OnInit{
     constructor(
         public fb: FormBuilder,
         public coursesServices: CoursesServices,
-        public modal: ModalServices,
         public fieldErrorsSrv: FieldErrorsServices
     ) {}
 
-    coursesObj: Course = this.modal.coursesObj
+    coursesObj: Course = this.coursesServices.coursesObj
 
     form = this.fb.group({
         name: this.fb.control(this.coursesObj.name, [

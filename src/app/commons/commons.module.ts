@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { OverlayComponent } from './components/overlay/overlay.component'
-import { ModalComponent } from './components/modal/modal.component'
 import { SearchComponent } from './components/search/search.component'
 import { HttpClientModule } from '@angular/common/http'
 import { StringComponent } from './components/form-control/string-control/string.component'
@@ -17,8 +15,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 @NgModule({
     declarations: [
-        OverlayComponent,
-        ModalComponent,
         SearchComponent,
         StringComponent,
         TextareaComponent,
@@ -38,8 +34,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
         FormsModule,
     ],
     exports: [
-        OverlayComponent,
-        ModalComponent,
         SearchComponent,
         StringComponent,
         TextareaComponent,

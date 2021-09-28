@@ -1,0 +1,6 @@
+<div class="overlay-container" [hidden]="!showOverlay">
+    <div class="overlay-container__layout">
+            <ng-template #refModal></ng-template>
+    </div>
+    <div (click)="closeModal()" class="overlay-container__backdrop"></div>
+</div>

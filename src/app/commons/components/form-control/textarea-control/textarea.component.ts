@@ -47,4 +47,3 @@ export class TextareaComponent implements ControlValueAccessor, Validator {
     }
     registerOnTouched(fn: any): void {}
 }
-
