@@ -19,11 +19,11 @@ import { AbstractControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR
 })
 export class DatepickerComponent implements ControlValueAccessor, Validator{
     
-    control!: AbstractControl;
+    control!: AbstractControl
     
     validate(control: AbstractControl): null {
-        this.control = control;
-        return null;
+        this.control = control
+        return null
     }
 
     @Input()

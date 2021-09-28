@@ -22,8 +22,8 @@ export class StringComponent implements ControlValueAccessor, Validator {
     control!: AbstractControl
     
     validate(control: AbstractControl): null {
-        this.control = control;
-        return null;
+        this.control = control
+        return null
     }
     
     @Input()

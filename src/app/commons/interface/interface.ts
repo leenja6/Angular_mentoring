@@ -1,5 +1,5 @@
 interface AUTHOR_MODEL {
-    lastName: string;
+    lastName: string
     id: number
     name: string
 }

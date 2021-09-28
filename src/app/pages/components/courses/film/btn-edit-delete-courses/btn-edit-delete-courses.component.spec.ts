@@ -1,25 +1,24 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { BtnEditDeleteCoursesComponent } from './btn-edit-delete-courses.component';
+import { ComponentFixture, TestBed } from '@angular/core/testing'
+import { BtnEditDeleteCoursesComponent } from './btn-edit-delete-courses.component'
 
 describe('BtnEditDeleteCoursesComponent', () => {
-  let component: BtnEditDeleteCoursesComponent;
-  let fixture: ComponentFixture<BtnEditDeleteCoursesComponent>;
+  let component: BtnEditDeleteCoursesComponent
+  let fixture: ComponentFixture<BtnEditDeleteCoursesComponent>
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ BtnEditDeleteCoursesComponent ]
     })
-    .compileComponents();
-  });
+    .compileComponents()
+  })
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BtnEditDeleteCoursesComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    fixture = TestBed.createComponent(BtnEditDeleteCoursesComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+  })
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    expect(component).toBeTruthy()
+  })
+})

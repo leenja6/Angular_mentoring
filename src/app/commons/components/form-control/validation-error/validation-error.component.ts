@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FieldErrorsServices } from "../../../services/field-errors.service";
+import { Component, Input, OnInit } from '@angular/core'
+import { FieldErrorsServices } from "../../../services/field-errors.service"
 
 @Component({
     selector: 'app-validation-error',

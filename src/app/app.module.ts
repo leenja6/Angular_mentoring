@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms'
 import { BrowserModule } from '@angular/platform-browser'
 import { AppComponent } from './app.component'
 import { CommonsModule } from './commons/commons.module'
-import { LayoutModule } from './layout/layout.module';
+import { LayoutModule } from './layout/layout.module'
 import { ModalsModule } from './modals/modals.module'
 
 @NgModule({

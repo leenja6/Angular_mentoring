@@ -1,5 +1,5 @@
-import { Component  } from '@angular/core';
-import { CoursesServices } from 'src/app/commons/services/courses.services';
+import { Component  } from '@angular/core'
+import { CoursesServices } from 'src/app/commons/services/courses.services'
 
 @Component({
   selector: 'app-popup-confirm',
