@@ -8,9 +8,9 @@ describe('PopupConfirmComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PopupConfirmComponent ]
+      declarations: [ PopupConfirmComponent ],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

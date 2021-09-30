@@ -1,13 +1,14 @@
-import { Component, Input } from '@angular/core'
-import { CoursesServices } from 'src/app/commons/services/courses.services'
+import { Component, Input } from '@angular/core';
+import { CoursesServices } from 'src/app/commons/services/courses.services';
 
 @Component({
-    selector: 'add-courses',
-    templateUrl: './add-courses.component.html',
+  selector: 'app-add-courses',
+  templateUrl: './add-courses.component.html',
 })
 export class AddCoursesComponent {
-   @Input() course!:any 
+    
+  @Input() course!:any; 
    
-    constructor(public courseService: CoursesServices){ }
+  constructor(public courseService: CoursesServices){ }
     
 }

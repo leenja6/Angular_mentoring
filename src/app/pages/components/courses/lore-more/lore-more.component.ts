@@ -1,13 +1,16 @@
-import { Component } from '@angular/core'
-import { loreMoreServices } from 'src/app/commons/services/lore-more.services'
+import { Component } from '@angular/core';
+import { loreMoreServices } from 'src/app/commons/services/lore-more.services';
 
 @Component({
-    selector: 'app-lore-more',
-    templateUrl: './lore-more.component.html',
+  selector: 'app-lore-more',
+  templateUrl: './lore-more.component.html',
 })
+    
 export class LoreMoreComponent {
-    constructor(private loreMoreServices: loreMoreServices) {}
-    addCount() {
-        this.loreMoreServices.addCount()
-    }
+    
+  constructor(private LoreMoreServices: loreMoreServices) {}
+
+  addCount() {
+    this.LoreMoreServices.addCount();
+  }
 }

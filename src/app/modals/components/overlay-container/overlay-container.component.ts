@@ -1,48 +1,49 @@
-import { Component, ComponentFactoryResolver, ViewChild, ViewContainerRef } from '@angular/core'
-import { CoursesServices } from 'src/app/commons/services/courses.services'
-import { overlayInterface } from '../../interface/OverlayInterface'
-import { OverlayServices } from '../../services/overlay.services'
+import { Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { CoursesServices } from 'src/app/commons/services/courses.services';
+import { overlayInterface } from '../../interface/overlayInterface';
+import { OverlayServices } from '../../services/overlay.services';
 
 @Component({
   selector: 'app-overlay-container',
   templateUrl: './overlay-container.component.html',
 })
-export class OverlayContainerComponent {
+export class OverlayContainerComponent implements OnInit{
+    
+  @ViewChild('refModal', { read: ViewContainerRef, static: true }) refModal!: ViewContainerRef;
   
-  
-  @ViewChild('refModal', { read: ViewContainerRef, static: true }) refModal!: ViewContainerRef
-  
-  showOverlay: boolean = false
+  showOverlay: boolean = false;
   
   constructor(
     private resolver: ComponentFactoryResolver,
     private overlayServices: OverlayServices,
-    private courses: CoursesServices
+    private courses: CoursesServices,
   ){}
   
   ngOnInit() {
+
     this.overlayServices.layoutOverlay$.subscribe(data => {
       if (data.course) {
-        this.courses.filmFormAdd(data.course)
+        this.courses.filmFormAdd(data.course);
       }
-      this.ShowModal(data)
-    })
+      this.ShowModal(data);
+    });
+
     this.courses.closeModal$.subscribe(() => {
-      this.closeModal()
-    })
+      this.closeModal();
+    });
   }
 
   ShowModal(component: overlayInterface) {
-    this.showOverlay = true
-    const addFactory = this.resolver.resolveComponentFactory(component.title)
-    this.refModal.createComponent(addFactory)
+    this.showOverlay = true;
+    const addFactory = this.resolver.resolveComponentFactory(component.title);
+    this.refModal.createComponent(addFactory);
   }
 
   closeModal() {
-    this.showOverlay = false    
-    this.refModal.clear()
+    this.showOverlay = false;    
+    this.refModal.clear();
     if (this.courses.coursesObj.id !== -1) {
-      this.courses.filmFormDelete()
+      this.courses.filmFormDelete();
     }
   }
 }

@@ -2,7 +2,7 @@
 <app-btn-add-courses></app-btn-add-courses>
 <app-film
     *ngFor="let post of coursesServices.getFilms() | async |
-        loremore: loreMoreServices.count"
+        loremore: LoreMoreServices.count"
         [film]="post"
 ></app-film>
 <div class="list-film">
@@ -14,5 +14,5 @@
     </div>
 </div>
 <div *ngIf="(coursesServices.getFilms() | async)?.length !== 0">
-    <app-lore-more *ngIf="loreMoreServices.hide"></app-lore-more>
+    <app-lore-more *ngIf="LoreMoreServices.hide"></app-lore-more>
 </div>
