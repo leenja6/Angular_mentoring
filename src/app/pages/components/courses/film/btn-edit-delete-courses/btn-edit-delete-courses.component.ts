@@ -12,9 +12,9 @@ export class BtnEditDeleteCoursesComponent {
     
   @Input()
   filmItem!: Course;
-    
+
   editFilmItem(item: Course): void {
-    this.overlayServices.showPopup({ title:'Edit', course:item });
+    this.overlayServices.showPopup({ title: 'Edit', course: item });
   }
 
   deleteFilmItem(item: Course): void {
