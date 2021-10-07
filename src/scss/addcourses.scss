@@ -24,7 +24,7 @@
         flex-wrap: wrap;
         margin-top: 20px;
        
-        textarea-control, string-control, datepicker-control{ width: 100%; position: relative;}
+        app-textarea-control, app-string-control, app-datepicker-control{ width: 100%; position: relative;}
         
         &-close{
             width: 25px;
@@ -38,7 +38,7 @@
 
         &-container {
             position: relative;
-            width: calc(100% + 5px);
+            width: calc(100% - 20px);
             margin-left: -5px;
             display: flex;
             justify-content: flex-start;

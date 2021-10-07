@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { BtnEditDeleteCoursesComponent } from './btn-edit-delete-courses.component';
 
 describe('BtnEditDeleteCoursesComponent', () => {
@@ -8,9 +7,9 @@ describe('BtnEditDeleteCoursesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BtnEditDeleteCoursesComponent ]
+      declarations: [ BtnEditDeleteCoursesComponent ],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

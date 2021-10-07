@@ -8,9 +8,9 @@ describe('BtnAddCoursesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BtnAddCoursesComponent ]
+      declarations: [ BtnAddCoursesComponent ],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

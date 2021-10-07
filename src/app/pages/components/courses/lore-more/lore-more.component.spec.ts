@@ -8,9 +8,9 @@ describe('LoreMoreComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LoreMoreComponent ]
+      declarations: [ LoreMoreComponent ],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

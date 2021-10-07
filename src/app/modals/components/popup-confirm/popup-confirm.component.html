@@ -1,0 +1,14 @@
+<div class="popup">
+    <p class="popup__title">Удалить курс</p>
+    <div  class="popup__content">
+        <div *ngIf="fetchCourses.error" class="form__group-error">
+            <p>{{ fetchCourses.errorTitle }}</p>
+        </div>
+        <div class="сonfirmation">
+            <div class="сonfirmation__btn">
+                <button class="сonfirmation__btn-green btn" (click)="Cancel()">Отмена</button>
+                <button class="сonfirmation__btn-green btn" (click)="DeleteFilm()">Потвердить</button>
+            </div>
+        </div> 
+    </div>
+</div>

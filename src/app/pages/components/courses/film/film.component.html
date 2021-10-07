@@ -1,14 +1,14 @@
 <ng-container *ngIf="film">
     <div
-        [addclass]="film.isTopRated"
-        [addBorder]="film.date"
+        [appAddClass]="film.isTopRated"
+        [appAddBorder]="film.date"
         class="list-film__item"
     >
         <div class="list-film__item-title">
             <p>{{ film.name }}</p>
             <p class="list-film__info">
                 <span class="list-film__time">
-                    {{ film.length | datetransform }}
+                    {{ film.length! | datetransform }}
                 </span>
                 <span class="list-film__calendar">
                     {{ film.date | date }}

@@ -8,9 +8,9 @@ describe('ValidationErrorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ValidationErrorComponent ]
+      declarations: [ ValidationErrorComponent ],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

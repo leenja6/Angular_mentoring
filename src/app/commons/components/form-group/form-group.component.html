@@ -1,0 +1,92 @@
+<div class="form__group">
+    <div *ngIf="coursesServices.error" class="form__group-error">
+        <p>{{ coursesServices.errorTitle }}</p>
+    </div>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="form__control">
+            <app-string-control 
+                [errorAdd]="f.name.touched"
+                title="Title"
+                name="name"
+                formControlName="name"
+            >
+            </app-string-control>
+           
+        </div>
+        <div class="form__control">
+            <app-textarea-control
+                [errorAdd]="f.description.touched"
+                title="Description"
+                name="description"
+                formControlName="description"
+            >
+            </app-textarea-control>
+        </div>
+        <div class="form__control">
+            <app-datepicker-control
+                [errorAdd]="f.date.touched"
+                title="Date"
+                name="date"
+                formControlName="date" 
+            >
+            </app-datepicker-control>
+        </div>
+        <div class="form__control">
+            <app-string-control 
+                [errorAdd]="f.length.touched"
+                title="Duration" 
+                name="length"
+                formControlName="length"
+            >
+            </app-string-control>
+        </div>
+        <div formArrayName="authors">
+            
+            <div *ngFor="let item of authors.controls; let i = index"
+                class="form__control">
+                <div class="form__control-container" [formGroupName]="i">
+                    <input type="hidden" formControlName="id" />
+                    <div class="form__control-box">
+                        <app-string-control 
+                            [errorAdd]="authors.touched"
+                            title="Last Name Author" 
+                            [name]="'lastname-' + i"
+                            formControlName="lastName"
+                        >
+                        </app-string-control>
+                    </div>
+                    <div class="form__control-box">
+                        <app-string-control 
+                            [errorAdd]="authors.touched"
+                            title="Name Author" 
+                            [name]="'name-' + i"
+                            formControlName="name"
+                        >
+                        </app-string-control>
+                    </div>
+                    <span 
+                        class="form__control-close"
+                        (click)="deleteAuthors(i)"
+                    >
+                    </span>
+                </div>
+            </div>
+        </div>    
+        <div class="form__control-btn">
+            <button (click)="AddAuthor()" class="btn btn-green" type="button">
+                Add Author
+            </button>
+        </div>
+        <div class="form__control">
+            <label for="isTopRated">Unique</label>
+            <input
+                id="isTopRated"
+                type="checkbox"
+                formControlName="isTopRated"
+            />
+        </div>
+        <div class="form__control">
+            <button class="btn btn-green" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
