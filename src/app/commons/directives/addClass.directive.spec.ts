@@ -42,6 +42,6 @@ describe('AddClassDirective', () => {
 
   it('Если false класс не добавляется', () => {
     let de = fixture.debugElement.queryAll(By.css('p'))[1];
-    expect(de.nativeElement.classList.value).toBe('');
+    expect(de.nativeElement.classList).toContain('noactive');
   });
 });

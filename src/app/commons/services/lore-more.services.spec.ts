@@ -16,17 +16,16 @@ describe('loreMoreServices', () => {
   });
     
   it('Метод addCount увеличивает count на 3', () => {
-    
+    // Начальный count = 3
+    expect(LoreMoreServices.count).toBe(3);
     LoreMoreServices.addCount();
-          
+    // После добовления метода addCount count = 6
     expect(LoreMoreServices.count).toBe(6);
   });
     
   it('Метод addCount вызывает метод hideLoreMore', () => {
     
-    const spy = spyOn(LoreMoreServices, 'hideLoreMore').and.callFake(() => {
-      return false;   
-    });
+    const spy = spyOn(LoreMoreServices, 'hideLoreMore');
       
     LoreMoreServices.addCount();
           
@@ -34,7 +33,10 @@ describe('loreMoreServices', () => {
   });
   
   it('Метод hideLoreMore присваивает переменной hide=false если count больше длинны масива', () => {
+    // Значение hide до вызова метода hideLoreMore равно true
+    expect(LoreMoreServices.hide).toBeTruthy();
     LoreMoreServices.hideLoreMore(3);
+    // Значение hide после вызова метода hideLoreMore равно false
     expect(LoreMoreServices.hide).toBeFalse();  
   });
     
@@ -48,9 +50,11 @@ describe('loreMoreServices', () => {
       authors: [{ lastName: '', id: 0, name: '' }],
       isTopRated: false,
     }];
-    coursesServices.getFilms().next(arr);
-      
-    LoreMoreServices.hideLoreMore(0);
-    expect(LoreMoreServices.hide).toBeTruthy();  
+    // count = 0
+    const count = 0;
+    coursesServices.filmList$.next(arr);
+    // длинна масива курсов = 1
+    expect(coursesServices.getFilms().value.length === 1).toBeTruthy();
+    LoreMoreServices.hideLoreMore(count);
   }); 
 });

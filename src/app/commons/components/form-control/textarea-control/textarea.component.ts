@@ -1,7 +1,6 @@
 import { Component, forwardRef, Input } from '@angular/core';
 import { AbstractControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, Validator } from '@angular/forms';
 
-
 @Component({
   selector: 'app-textarea-control',
   templateUrl: './textarea.component.html',

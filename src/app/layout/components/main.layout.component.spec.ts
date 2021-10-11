@@ -15,7 +15,7 @@ describe('mainLayoutComponent', () => {
     appMainLayout = fixture.componentInstance;
   });
   
-  xit('Создание компонента appMainLayout', () => {
+  it('Создание компонента appMainLayout', () => {
     expect(appMainLayout).toBeDefined();
   });
 });

@@ -33,8 +33,6 @@ export class DatepickerComponent implements ControlValueAccessor, Validator{
     
   @Input() name!: string;
     
-  fk:boolean = false; 
-
   value!: string;
 
   public onChange = (value: EventTarget) => {};
@@ -42,7 +40,6 @@ export class DatepickerComponent implements ControlValueAccessor, Validator{
   public onTouched = () => { this.errorAdd = true; };
 
   writeValue(value: string): void {
-    this.fk = true;
     this.value = value;
   }
 

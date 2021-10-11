@@ -33,5 +33,4 @@ describe('fieldErrorsServices', () => {
     const err = fieldErrorsServices.getTextValue({ minlengthh: 50 });
     expect(err).toBe('');
   });
-    
 });

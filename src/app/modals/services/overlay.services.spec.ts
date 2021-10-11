@@ -33,7 +33,7 @@ describe('fieldErrorsServices', () => {
     const spy = spyOn(overlayContainerComponent, 'ShowModal').and.returnValue();
     overlayContainerComponent.ngOnInit();
     overlayServices.showPopup(component);  
-    console.log(overlayServices.showPopup(component));
+    
     expect(spy).toHaveBeenCalled();
   });
 });

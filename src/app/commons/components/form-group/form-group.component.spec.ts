@@ -23,6 +23,7 @@ describe('FormGroupComponent', () => {
  
   let appFormGroup: FormGroupComponent;
   let fixture: ComponentFixture<FormGroupComponent>;
+  let coursesServices: CoursesServices;
   
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -31,12 +32,18 @@ describe('FormGroupComponent', () => {
       imports: [HttpClientModule, AppRoutingModule],
     });
     
+    coursesServices = TestBed.inject(CoursesServices);
     fixture = TestBed.createComponent(FormGroupComponent);
     appFormGroup = fixture.componentInstance;
   });
   
   it('Создание компонента appFormGroup', () => {
     expect(appFormGroup).toBeDefined();
+  });
+
+  it('Проверка прихода данных от сервиса', () => {
+    // Если объект coursesObj существует в сервисе coursesServices то его id = 10
+    expect(coursesServices.coursesObj.id === 10).toBeTruthy();
   });
 
   it('Проверка отоброжения даты в контроле date', () => {
@@ -51,13 +58,19 @@ describe('FormGroupComponent', () => {
 
   it('Проверка удаления авторов из контрола authors', () => {
     fixture.detectChanges();
+    // На данный момент длинна масива с авторами 1
+    expect(appFormGroup.form.controls.authors.value.length === 1).toBeTruthy();
     appFormGroup.deleteAuthors(0);
+    // После применения метода deleteAuthors длинна масива должна быть 0
     expect(appFormGroup.form.controls.authors.value.length === 0).toBeTruthy();
   });
 
   it('Проверка добавления control в authors', () => {
     fixture.detectChanges();
+    // На данный момент длинна масива с авторами 1
+    expect(appFormGroup.form.controls.authors.value.length === 1).toBeTruthy();
     appFormGroup.AddAuthor();
+    // После применения метода AddAuthor длинна масива должна быть 2
     expect(appFormGroup.form.controls.authors.value.length === 2).toBeTruthy();
   });
 

@@ -3,7 +3,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { CommonsModule } from 'src/app/commons/commons.module';
 import { CoursesServices } from 'src/app/commons/services/courses.services';
-import { loreMoreServices } from 'src/app/commons/services/lore-more.services';
 import { CoursesComponent } from './courses.component';
 
 describe('CoursesComponent', () => {

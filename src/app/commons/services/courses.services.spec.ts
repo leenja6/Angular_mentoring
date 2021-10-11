@@ -52,7 +52,10 @@ describe('fieldErrorsServices', () => {
     spyOn(dataServices, 'fetchCourses').and.callFake(() => {
       return of(course);
     });
+    // Фильмов перед иницилизации метода ngOnInit будет 0 
+    expect(coursesServices.getFilms().value.length).toBe(0);
     coursesComponent.ngOnInit();
+    // Фильмов после иницилизации метода ngOnInit будет 1 
     expect(coursesServices.getFilms().value.length).toBe(1);
   });
   
@@ -121,7 +124,10 @@ describe('fieldErrorsServices', () => {
     spyOn(dataServices, 'fetchCourses').and.callFake(() => {
       return of(course);
     });
+    // Начальное количество курсов 0 
+    expect(coursesServices.getFilms().value.length).toBe(0);
     coursesServices.Addfilm(course2);
+    // После вызова метода Addfilm количество курсов станет 1 
     expect(coursesServices.getFilms().value.length).toBe(1);
   });
     

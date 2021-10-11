@@ -14,6 +14,8 @@ export class AddClassDirective implements OnInit {
   ngOnInit() {
     if (this.isTopRated) {
       this.r.addClass(this.element.nativeElement, 'active');
-    } 
+    } else {
+      this.r.addClass(this.element.nativeElement, 'noactive');
+    }
   } 
 }
