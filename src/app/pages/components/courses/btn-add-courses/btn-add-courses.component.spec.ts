@@ -1,25 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { BtnAddCoursesComponent } from './btn-add-courses.component';
 
 describe('BtnAddCoursesComponent', () => {
-  let component: BtnAddCoursesComponent;
+ 
+  let appBtnAddCourses: BtnAddCoursesComponent;
   let fixture: ComponentFixture<BtnAddCoursesComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ BtnAddCoursesComponent ],
-    })
-      .compileComponents();
-  });
-
   beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [BtnAddCoursesComponent],
+    });
+    
     fixture = TestBed.createComponent(BtnAddCoursesComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    appBtnAddCourses = fixture.componentInstance;
   });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  
+  it('Создание компонента appBtnAddCourses', () => {
+    expect(appBtnAddCourses).toBeDefined();
   });
 });

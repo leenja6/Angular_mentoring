@@ -1,4 +1,4 @@
-import { Component, forwardRef, Input } from '@angular/core';
+import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import { AbstractControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, Validator } from '@angular/forms';
 
 @Component({
@@ -25,7 +25,7 @@ export class DatepickerComponent implements ControlValueAccessor, Validator{
     this.control = control;
     return null;
   }
-
+  
   @Input()
   errorAdd:boolean = false;
 
@@ -35,7 +35,7 @@ export class DatepickerComponent implements ControlValueAccessor, Validator{
     
   value!: string;
 
-  public onChange = (value: EventTarget) => { };
+  public onChange = (value: EventTarget) => {};
 
   public onTouched = () => { this.errorAdd = true; };
 

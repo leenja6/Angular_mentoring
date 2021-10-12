@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
     
 export class CoursesServices {
 
-  filmList$: BehaviorSubject<any> = new BehaviorSubject([]);
+  filmList$:BehaviorSubject<any> = new BehaviorSubject([]);
     
   closeModal$: Subject<any> = new Subject();
 

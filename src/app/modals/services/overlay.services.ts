@@ -17,7 +17,7 @@ export class OverlayServices {
   };
 
   layoutOverlay$: Subject<overlayInterface> = new Subject();
-
+  
   showPopup(component: overlayInterface) {
     this.layoutOverlay$.next({ title: this.entryComponents[component.title], course: component.course });
   }

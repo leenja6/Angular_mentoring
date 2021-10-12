@@ -1,25 +1,27 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { AppRoutingModule } from 'src/app/app-routing.module';
+import { CommonsModule } from 'src/app/commons/commons.module';
+import { CoursesServices } from 'src/app/commons/services/courses.services';
 import { CoursesComponent } from './courses.component';
 
 describe('CoursesComponent', () => {
-  let component: CoursesComponent;
+ 
+  let appCourses: CoursesComponent;
   let fixture: ComponentFixture<CoursesComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ CoursesComponent ],
-    })
-      .compileComponents();
-  });
-
   beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [CoursesComponent],
+      providers: [CoursesServices],
+      imports: [HttpClientModule, AppRoutingModule, CommonsModule],
+    });
+    
     fixture = TestBed.createComponent(CoursesComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    appCourses = fixture.componentInstance;
   });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  
+  it('Создание компонента appCourses', () => {
+    expect(appCourses).toBeDefined();
   });
 });

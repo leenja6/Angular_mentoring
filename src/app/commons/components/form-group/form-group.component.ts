@@ -11,6 +11,7 @@ import { NumberValidator } from '../../validators/number.validator';
 })
 
 export class FormGroupComponent implements OnInit{
+  
   minNameLength: number = 5;
 
   maxNameLength: number = 100;

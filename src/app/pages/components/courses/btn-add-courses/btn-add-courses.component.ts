@@ -4,4 +4,5 @@ import { Component } from '@angular/core';
   selector: 'app-btn-add-courses',
   templateUrl: './btn-add-courses.component.html',
 })
-export class BtnAddCoursesComponent {}
+  
+export class BtnAddCoursesComponent { }

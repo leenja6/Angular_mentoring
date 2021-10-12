@@ -1,25 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PopupEditComponent } from './popup-edit.component';
 
 describe('PopupEditComponent', () => {
-  let component: PopupEditComponent;
+ 
+  let appPopupEdit: PopupEditComponent;
   let fixture: ComponentFixture<PopupEditComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ PopupEditComponent ],
-    })
-      .compileComponents();
-  });
-
   beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [PopupEditComponent],
+    });
+    
     fixture = TestBed.createComponent(PopupEditComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    appPopupEdit = fixture.componentInstance;
   });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  
+  it('Создание компонента appPopupEdit', () => {
+    expect(appPopupEdit).toBeDefined();
   });
 });

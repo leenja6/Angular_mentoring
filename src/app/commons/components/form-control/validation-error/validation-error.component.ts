@@ -16,6 +16,7 @@ export class ValidationErrorComponent {
   constructor(public fieldErrorsSrv: FieldErrorsServices) { }
 
   getErrors(): string[] {
+    console.log(this.errors);
     return this.errors ? Object.keys(this.errors) : [];
   }
 

@@ -20,7 +20,7 @@ export class OverlayContainerComponent implements OnInit{
   ){}
   
   ngOnInit() {
-
+    console.log('sdfsdfsdf');
     this.overlayServices.layoutOverlay$.subscribe(data => {
       if (data.course) {
         this.courses.filmFormAdd(data.course);
