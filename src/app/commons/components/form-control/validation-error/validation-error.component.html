@@ -1,0 +1,5 @@
+ <div *ngIf="errTouched && errors" class="field-errors">
+    <div *ngFor="let error of getErrors()">
+        {{ getText(error) }} {{ getTextvalue() }}
+    </div>
+</div>

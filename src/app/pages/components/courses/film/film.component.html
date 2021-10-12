@@ -1,0 +1,32 @@
+<ng-container *ngIf="film">
+    <div
+        [appAddClass]="film.isTopRated"
+        [appAddBorder]="film.date"
+        class="list-film__item"
+    >
+        <div class="list-film__item-title">
+            <p>{{ film.name }}</p>
+            <p class="list-film__info">
+                <span class="list-film__time">
+                    {{ film.length! | datetransform }}
+                </span>
+                <span class="list-film__calendar">
+                    {{ film.date | date }}
+                </span>
+            </p>
+        </div>
+        <div class="list-film__item-text">
+            <div class="list-film__item-box">
+                <p class="list-film__item-description">
+                    {{ film.description }}
+                </p>
+            </div>
+            <div class="list-film__item-btn">
+                <app-btn-edit-delete-courses
+                    (deleteFilm)="getDeleteFilm($event)"
+                    [filmItem]="film"
+                ></app-btn-edit-delete-courses>
+            </div>
+        </div>
+    </div>
+</ng-container>

@@ -1,21 +1,22 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
-import { FilmComponent } from './film/film.component';
-
+import { CommonsModule } from './commons/commons.module';
+import { LayoutModule } from './layout/layout.module';
+import { ModalsModule } from './modals/modals.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    FilmComponent   
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    LayoutModule,
+    CommonsModule,
+    ModalsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+    
+export class AppModule {}

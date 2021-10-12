@@ -1,0 +1,21 @@
+.сonfirmation{
+    margin-top: 15px;
+    
+    &__btn{
+        width: calc(100% + 20px);
+        display: flex;
+        justify-content:flex-start;
+        align-items: center;
+        margin-left:-10px;
+
+        &-green{
+            width: calc(50% - 20px);
+            margin-left:10px;
+            margin-right: 10px;
+            border: none;
+            color: #fff;
+            height: 33px;
+            background-color: #30b6dd;
+        }
+    }
+}

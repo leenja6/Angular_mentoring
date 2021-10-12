@@ -1,0 +1,34 @@
+.add-courses {
+    width: 100%;
+    height: 33px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    &__btn {
+        width: 125px;
+        height: 33px;
+        background-color: $secondary-bg-btn;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        font-size: 12px;
+
+        p {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        p:before {
+            content: '';
+            display: block;
+            width: 15px;
+            height: 15px;
+            background: url(../assets/img/plus.svg) no-repeat;
+            padding-right: 11px;
+        }
+    }
+}
